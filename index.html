@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Canadian Cybersecurity Timeline</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      background-size: 400% 400%;
+      animation: gradientBG 30s ease infinite;
+      color: #fff;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .timeline-line {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 10px;
+      background: linear-gradient(to bottom, #00f0ff, #0088ff);
+      box-shadow: 0 0 30px #00f0ffcc;
+      transform: translateX(-50%);
+      z-index: 1;
+      opacity: 0.5;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      padding: 20px 30px;
+      text-align: center;
+      z-index: 1000;
+      font-size: 1.3em;
+    }
+
+    header a {
+      color: #00f0ff;
+      text-decoration: none;
+      margin: 0 12px;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    header a.active {
+      background-color: #00f0ff;
+      color: #000;
+      box-shadow: 0 0 10px #00f0ff;
+    }
+
+    header a:hover {
+      background-color: #0088ff;
+      color: white;
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 140px 20px 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .content-box {
+      background: rgba(0, 255, 255, 0.07);
+      border: 2px solid #00f0ff55;
+      border-radius: 16px;
+      padding: 60px;
+      max-width: 1000px;
+      margin: 0 auto;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 25px #00f0ff44;
+    }
+
+    .content-box img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 25px;
+      border: 2px solid #00f0ff33;
+      border-radius: 10px;
+    }
+
+    h2 {
+      color: #00f0ff;
+      margin-bottom: 25px;
+      font-size: 2em;
+    }
+
+    p {
+      line-height: 1.8;
+      font-size: 1.3em;
+    }
+
+    @media screen and (max-width: 768px) {
+      header {
+        font-size: 1em;
+        padding: 12px;
+      }
+
+      .content-box {
+        padding: 40px 20px;
+      }
+
+      p {
+        font-size: 1.1em;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const sections = document.querySelectorAll("section");
+      const navLinks = document.querySelectorAll("header a");
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          const id = entry.target.getAttribute("id");
+          const link = document.querySelector(`header a[href="#${id}"]`);
+          if (entry.isIntersecting) {
+            navLinks.forEach(link => link.classList.remove("active"));
+            link.classList.add("active");
+          }
+        });
+      }, { threshold: 0.5 });
+
+      sections.forEach(section => {
+        observer.observe(section);
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="timeline-line"></div>
+  <header>
+    <a href="#stop1">1941</a>
+    <a href="#stop2">1946</a>
+    <a href="#stop3">1948</a>
+    <a href="#stop4">1946–2001</a>
+    <a href="#stop5">2001</a>
+    <a href="#stop6">2010</a>
+    <a href="#stop7">2013</a>
+    <a href="#stop8">2020</a>
+    <a href="#stop9">2024</a>
+    <a href="#stop10">2025</a>
+  </header>
+
+  <section id="stop1"><div class="content-box"><h2>1941 – The Examination Unit</h2><img src="https://via.placeholder.com/800x400.png?text=Stop+1+Image"><p>Canada’s entry into cybersecurity began during WWII...</p></div></section>
+  <section id="stop2"><div class="content-box"><h2>1946 – Birth of the CSE</h2><img src="https://via.placeholder.com/800x400.png?text=Stop+2+Image"><p>Post-WWII, Canada created the CSE...</p></div></section>
+  <section id="stop3"><div class="content-box"><h2>1948 – Origins of the Five Eyes</h2><img src="https://via.placeholder.com/800x400.png?text=Stop+3+Image"><p>The UKUSA Agreement formed the Five Eyes alliance...</p></div></section>
+  <section id="stop4"><div class="content-box"><h2>1946–2001 – Cold War & Tech Progress</h2><img src="https://via.placeholder.com/800x400.png?text=Stop+4+Image"><p>CSE expanded to digital surveillance...</p></div></section>
+  <section id="stop5"><div class="content-box"><h2>2001 – Anti-Terrorism Act</h2><img src="https://via.placeholder.com/800x400.png?text=Stop+5+Image"><p>After 9/11, Canada passed laws expanding CSE’s authority...</p></div></section>
+  <section id="stop6"><div class="content-box"><h2>2010 – Cyber Becomes Priority</h2><img src="https://via.placeholder.com/800x400.png?text=Stop+6+Image"><p>Canada's first cyber strategy launched...</p></div></section>
+  <section id="stop7"><div class="content-box"><h2>2013 – Five Eyes Cyber Role Grows</h2><img src="https://via.placeholder.com/800x400.png?text=Stop+7+Image"><p>Leaked documents revealed Canada’s integration...</p></div></section>
+  <section id="stop8"><div class="content-box"><h2>2020 – Cyber Attacks Hit Home</h2><img src="https://via.placeholder.com/800x400.png?text=Stop+8+Image"><p>Ransomware attacks hit hospitals...</p></div></section>
+  <section id="stop9"><div class="content-box"><h2>2024 – Privacy Act Modernized</h2><img src="https://via.placeholder.com/800x400.png?text=Stop+9+Image"><p>Canada updated privacy laws...</p></div></section>
+  <section id="stop10"><div class="content-box"><h2>2025 – Where Are We Now?</h2><img src="https://via.placeholder.com/800x400.png?text=Stop+10+Image"><p>Canada now balances cybersecurity with digital rights...</p></div></section>
+</body>
+</html>
